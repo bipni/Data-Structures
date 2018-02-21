@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int binarySearch(int *ara, int key, int len);
 void bubbleSort(int len, int *ara);
 
 int main()
 {
-    int len, *ara, *reset, i;
+    int len, *ara, *reset, i, key, pos;
 
     printf("How many number: ");
     scanf("%d", &len);
@@ -30,7 +31,36 @@ int main()
         printf("%4d ", ara[i]);
     }
 
+    printf("\nEnter search key: ");
+    scanf("%d", &key);
+
+    pos = binarySearch(ara, key, len);
+
+    if(pos == -1)
+        printf("The search key is not in the array\n");
+    else
+        printf("The search key %d is at location %d\n", key, pos);
+
     return 0;
+}
+
+int binarySearch(int *ara, int key, int len)
+{
+    int low = 0, high = len-1, middle;
+
+    while(low <= high)
+    {
+        middle = (low+high)/2;
+
+        if(key == ara[middle])
+            return middle+1;
+        else if(key < ara[middle])
+            high = middle-1;
+        else
+            low = middle+1;
+    }
+
+    return -1;
 }
 
 void bubbleSort(int len, int *ara)
@@ -50,3 +80,4 @@ void bubbleSort(int len, int *ara)
         }
     }
 }
+
