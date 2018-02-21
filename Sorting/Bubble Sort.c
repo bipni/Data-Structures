@@ -27,7 +27,7 @@ int main()
 
     for(i = 0; i < num; i++)
     {
-        printf("%d ", ara[i]);
+        printf("%4d ", ara[i]);
     }
 
     return 0;
