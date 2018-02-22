@@ -184,7 +184,7 @@ void addHead(int x)
     else
     {
         newItem->next = head;
-        head->next = NULL;
+        head = newItem;
     }
 }
 
@@ -292,7 +292,9 @@ void delTail()
     {
         prev->next = cur->next;
     }
+
     free(cur);
+
 }
 
 // delete specific value of the linked lists
