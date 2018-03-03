@@ -91,8 +91,15 @@ int main()
 
             case 5:
             {
-                delTail();
-                printList();
+                if(length() != 0)
+                {
+                    delTail();
+                    printList();
+                }
+                else
+                {
+                    printf("No value to delete!");
+                }
 
                 break;
             }
